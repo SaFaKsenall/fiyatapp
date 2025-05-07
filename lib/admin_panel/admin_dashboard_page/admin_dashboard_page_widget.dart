@@ -39,15 +39,16 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResultflc = await AdminPanelApiGroup.businessKullancCall.call(
+      _model.apiResultflc =
+          await AdminPanelApiGroup.businessKullancilarCall.call(
         authToken: FFAppState().authToken,
       );
 
-      await AdminPanelApiGroup.usersapiCall.call(
+      await AdminPanelApiGroup.userKullanicilarCall.call(
         authToken: FFAppState().authToken,
       );
 
-      await AdminPanelApiGroup.adminPanelCall.call(
+      await AdminPanelApiGroup.adminKullanicilarCall.call(
         authToken: FFAppState().authToken,
       );
 
@@ -281,7 +282,8 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 8.0, 8.0),
                                       child: FutureBuilder<ApiCallResponse>(
-                                        future: AdminPanelApiGroup.usersapiCall
+                                        future: AdminPanelApiGroup
+                                            .userKullanicilarCall
                                             .call(
                                           authToken: FFAppState().authToken,
                                         ),
@@ -304,7 +306,7 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                               ),
                                             );
                                           }
-                                          final taskDetailsUsersapiResponse =
+                                          final taskDetailsUserKullanicilarResponse =
                                               snapshot.data!;
 
                                           return Container(
@@ -329,7 +331,7 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                                 children: [
                                                   Text(
                                                     getJsonField(
-                                                      taskDetailsUsersapiResponse
+                                                      taskDetailsUserKullanicilarResponse
                                                           .jsonBody,
                                                       r'''$.data.pagination.totalItems''',
                                                     ).toString(),
@@ -412,7 +414,7 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                           0.0, 0.0, 8.0, 8.0),
                                       child: FutureBuilder<ApiCallResponse>(
                                         future: AdminPanelApiGroup
-                                            .adminPanelCall
+                                            .adminKullanicilarCall
                                             .call(
                                           authToken: FFAppState().authToken,
                                         ),
@@ -435,7 +437,7 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                               ),
                                             );
                                           }
-                                          final taskDetailsAdminPanelResponse =
+                                          final taskDetailsAdminKullanicilarResponse =
                                               snapshot.data!;
 
                                           return Container(
@@ -460,7 +462,7 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                                 children: [
                                                   Text(
                                                     getJsonField(
-                                                      taskDetailsAdminPanelResponse
+                                                      taskDetailsAdminKullanicilarResponse
                                                           .jsonBody,
                                                       r'''$.data.pagination.totalItems''',
                                                     ).toString(),
@@ -546,7 +548,7 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                           0.0, 0.0, 16.0, 8.0),
                                       child: FutureBuilder<ApiCallResponse>(
                                         future: AdminPanelApiGroup
-                                            .businessKullancCall
+                                            .businessKullancilarCall
                                             .call(
                                           authToken: FFAppState().authToken,
                                         ),
@@ -569,7 +571,7 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                               ),
                                             );
                                           }
-                                          final taskDetailsBusinessKullancResponse =
+                                          final taskDetailsBusinessKullancilarResponse =
                                               snapshot.data!;
 
                                           return Container(
@@ -594,7 +596,7 @@ class _AdminDashboardPageWidgetState extends State<AdminDashboardPageWidget>
                                                 children: [
                                                   Text(
                                                     getJsonField(
-                                                      taskDetailsBusinessKullancResponse
+                                                      taskDetailsBusinessKullancilarResponse
                                                           .jsonBody,
                                                       r'''$.data.pagination.totalItems''',
                                                     ).toString(),

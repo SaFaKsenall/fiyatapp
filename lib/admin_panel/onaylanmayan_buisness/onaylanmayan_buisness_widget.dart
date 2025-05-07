@@ -87,7 +87,7 @@ class _OnaylanmayanBuisnessWidgetState
               mainAxisSize: MainAxisSize.max,
               children: [
                 FutureBuilder<ApiCallResponse>(
-                  future: AdminPanelApiGroup.businessKullancCall.call(
+                  future: AdminPanelApiGroup.businessKullancilarCall.call(
                     authToken: FFAppState().authToken,
                   ),
                   builder: (context, snapshot) {
@@ -105,12 +105,12 @@ class _OnaylanmayanBuisnessWidgetState
                         ),
                       );
                     }
-                    final listViewBusinessKullancResponse = snapshot.data!;
+                    final listViewBusinessKullancilarResponse = snapshot.data!;
 
                     return Builder(
                       builder: (context) {
                         final buisnessmail = getJsonField(
-                          listViewBusinessKullancResponse.jsonBody,
+                          listViewBusinessKullancilarResponse.jsonBody,
                           r'''$.data.businesses''',
                         ).toList();
 
@@ -237,7 +237,7 @@ class _OnaylanmayanBuisnessWidgetState
                                             );
 
                                             await AdminPanelApiGroup
-                                                .businessKullancCall
+                                                .businessKullancilarCall
                                                 .call(
                                               authToken: FFAppState().authToken,
                                             );

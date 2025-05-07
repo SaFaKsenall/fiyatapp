@@ -8,7 +8,7 @@ class AdminDashboardPageModel
     extends FlutterFlowModel<AdminDashboardPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - API (business kullanc)] action in AdminDashboardPage widget.
+  // Stores action output result for [Backend Call - API (business kullancilar)] action in AdminDashboardPage widget.
   ApiCallResponse? apiResultflc;
 
   @override
