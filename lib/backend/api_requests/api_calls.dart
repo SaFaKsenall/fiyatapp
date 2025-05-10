@@ -1861,6 +1861,174 @@ class RezervasyonlarCall {
         response,
         r'''$.success''',
       ));
+  int? datapaginationlimit(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.limit''',
+      ));
+  int? datapaginationtotalItems(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.totalItems''',
+      ));
+  int? datapaginationtotalPages(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.totalPages''',
+      ));
+  dynamic datapagination(dynamic response) => getJsonField(
+        response,
+        r'''$.data.pagination''',
+      );
+  List<String>? databookingsuseremail(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].user.email''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? databookingsuser(dynamic response) => getJsonField(
+        response,
+        r'''$.data.bookings[:].user''',
+        true,
+      ) as List?;
+  List<String>? databookingshotelid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].hotel.id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? databookingscreatedAt(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].createdAt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? databookingscurrency(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].currency''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? databookingstotalPrice(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].totalPrice''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? databookingscheckOutDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].checkOutDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? databookingscheckInDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].checkInDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? databookingspaymentStatus(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].paymentStatus''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? databookingsstatus(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].status''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? databookingshotel(dynamic response) => getJsonField(
+        response,
+        r'''$.data.bookings[:].hotel''',
+        true,
+      ) as List?;
+  List<String>? databookingshotelname(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].hotel.name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? databookingsuseruid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].user.uid''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? databookingsuserdisplayName(dynamic response) => getJsonField(
+        response,
+        r'''$.data.bookings[:].user.displayName''',
+        true,
+      ) as List?;
+  int? datapaginationcurrentPage(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.currentPage''',
+      ));
+  List<String>? databookingsbookingReference(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].bookingReference''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? databookingsid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.bookings[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? bookings(dynamic response) => getJsonField(
+        response,
+        r'''$.data.bookings''',
+        true,
+      ) as List?;
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 /// End BusinessAP Group Code

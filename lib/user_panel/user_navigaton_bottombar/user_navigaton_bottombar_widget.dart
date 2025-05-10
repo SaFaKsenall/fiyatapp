@@ -137,7 +137,7 @@ class _UserNavigatonBottombarWidgetState
         height: 70.0,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF4A3B70), Color(0xFF0526A8)],
+            colors: [Color(0xFF0D1542), Color(0xFF0C1C77)],
             stops: [0.0, 1.0],
             begin: AlignmentDirectional(1.0, -1.0),
             end: AlignmentDirectional(-1.0, 1.0),

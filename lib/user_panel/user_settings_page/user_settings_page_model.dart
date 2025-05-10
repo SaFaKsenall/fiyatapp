@@ -1,9 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/user_panel/user_navigaton_bottombar/user_navigaton_bottombar_widget.dart';
-import 'user_home_page_widget.dart' show UserHomePageWidget;
+import '/index.dart';
+import 'user_settings_page_widget.dart' show UserSettingsPageWidget;
 import 'package:flutter/material.dart';
 
-class UserHomePageModel extends FlutterFlowModel<UserHomePageWidget> {
+class UserSettingsPageModel extends FlutterFlowModel<UserSettingsPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for UserNavigatonBottombar component.

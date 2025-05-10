@@ -25,3 +25,7 @@ export '/admin_panel/onaylanmayan_buisness/onaylanmayan_buisness_widget.dart'
 export '/admin_panel/onaylanmayan_otel/onaylanmayan_otel_widget.dart'
     show OnaylanmayanOtelWidget;
 export '/user_bookings/user_bookings_widget.dart' show UserBookingsWidget;
+export '/user_panel/user_settings_page/user_settings_page_widget.dart'
+    show UserSettingsPageWidget;
+export '/user_panel/user_contactpage/user_contactpage_widget.dart'
+    show UserContactpageWidget;

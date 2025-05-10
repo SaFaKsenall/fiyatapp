@@ -114,6 +114,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: UserBookingsWidget.routeName,
           path: UserBookingsWidget.routePath,
           builder: (context, params) => UserBookingsWidget(),
+        ),
+        FFRoute(
+          name: UserSettingsPageWidget.routeName,
+          path: UserSettingsPageWidget.routePath,
+          builder: (context, params) => UserSettingsPageWidget(),
+        ),
+        FFRoute(
+          name: UserContactpageWidget.routeName,
+          path: UserContactpageWidget.routePath,
+          builder: (context, params) => UserContactpageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

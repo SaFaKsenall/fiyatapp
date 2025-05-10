@@ -79,7 +79,7 @@ class _BusinessSettingsPageWidgetState
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 50.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -228,65 +228,6 @@ class _BusinessSettingsPageWidgetState
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.0, -1.0),
-                                child: Padding(
-                                  padding: EdgeInsets.all(5.0),
-                                  child: Material(
-                                    color: Colors.transparent,
-                                    child: ListTile(
-                                      leading: Icon(
-                                        Icons.person_sharp,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                      ),
-                                      title: Text(
-                                        'Kişisel Bilgiler',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      tileColor: Color(0x9F57636C),
-                                      dense: false,
-                                      contentPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              16.0, 0.0, 0.0, 0.0),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(8.0),
-                                          bottomRight: Radius.circular(8.0),
-                                          topLeft: Radius.circular(8.0),
-                                          topRight: Radius.circular(8.0),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
                               Container(
                                 width: double.infinity,
                                 height: 1.0,
