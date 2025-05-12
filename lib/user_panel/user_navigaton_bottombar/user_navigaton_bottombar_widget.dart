@@ -169,7 +169,7 @@ class _UserNavigatonBottombarWidgetState
                     ),
                     onPressed: () async {
                       context.pushNamed(
-                        BusinessDashboardPageWidget.routeName,
+                        UserHomePageWidget.routeName,
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
@@ -209,7 +209,7 @@ class _UserNavigatonBottombarWidgetState
                     ),
                     onPressed: () async {
                       context.pushNamed(
-                        MyHotelsWidget.routeName,
+                        UserBookingsWidget.routeName,
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
@@ -249,7 +249,7 @@ class _UserNavigatonBottombarWidgetState
                     ),
                     onPressed: () async {
                       context.pushNamed(
-                        BusinessContactpageWidget.routeName,
+                        UserContactpageWidget.routeName,
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
@@ -289,7 +289,7 @@ class _UserNavigatonBottombarWidgetState
                     ),
                     onPressed: () async {
                       context.pushNamed(
-                        BusinessSettingsPageWidget.routeName,
+                        UserSettingsPageWidget.routeName,
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
