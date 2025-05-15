@@ -1,4 +1,4 @@
-import '/business_panel/components/pending_component/pending_component_widget.dart';
+import '/business_panel/pending_component/pending_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';

@@ -278,7 +278,7 @@ class _UserNavigatonBottombarWidgetState
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Opacity(
-                  opacity: widget.selectedpage == 3 ? 1.0 : 0.5,
+                  opacity: widget.selectedpage == 4 ? 1.0 : 0.5,
                   child: FlutterFlowIconButton(
                     borderRadius: 8.0,
                     buttonSize: 50.0,

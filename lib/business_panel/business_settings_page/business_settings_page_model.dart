@@ -1,4 +1,4 @@
-import '/business_panel/components/navigaton_bottombar/navigaton_bottombar_widget.dart';
+import '/business_panel/navigaton_bottombar/navigaton_bottombar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'business_settings_page_widget.dart' show BusinessSettingsPageWidget;

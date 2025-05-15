@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/business_panel/components/navigaton_bottombar/navigaton_bottombar_widget.dart';
+import '/business_panel/navigaton_bottombar/navigaton_bottombar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'business_dashboard_page_widget.dart' show BusinessDashboardPageWidget;

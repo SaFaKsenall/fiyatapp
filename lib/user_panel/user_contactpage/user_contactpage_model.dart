@@ -1,4 +1,4 @@
-import '/business_panel/components/navigaton_bottombar/navigaton_bottombar_widget.dart';
+import '/business_panel/navigaton_bottombar/navigaton_bottombar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'user_contactpage_widget.dart' show UserContactpageWidget;
 import 'package:flutter/material.dart';

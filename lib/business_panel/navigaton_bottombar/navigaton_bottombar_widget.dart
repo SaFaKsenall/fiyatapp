@@ -118,6 +118,25 @@ class _NavigatonBottombarWidgetState extends State<NavigatonBottombarWidget>
           ),
         ],
       ),
+      'dividerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.6, 1.0),
+            end: Offset(1.0, 1.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 150.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
   }
 
@@ -278,12 +297,12 @@ class _NavigatonBottombarWidgetState extends State<NavigatonBottombarWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Opacity(
-                  opacity: widget.selectedpage == 3 ? 1.0 : 0.5,
+                  opacity: widget.selectedpage == 4 ? 1.0 : 0.5,
                   child: FlutterFlowIconButton(
                     borderRadius: 8.0,
                     buttonSize: 50.0,
                     icon: Icon(
-                      Icons.settings_rounded,
+                      Icons.edit_calendar_outlined,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       size: 30.0,
                     ),
@@ -311,6 +330,46 @@ class _NavigatonBottombarWidgetState extends State<NavigatonBottombarWidget>
                     ),
                   ).animateOnPageLoad(
                       animationsMap['dividerOnPageLoadAnimation4']!),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Opacity(
+                  opacity: widget.selectedpage == 5 ? 1.0 : 0.5,
+                  child: FlutterFlowIconButton(
+                    borderRadius: 8.0,
+                    buttonSize: 50.0,
+                    icon: Icon(
+                      Icons.settings_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      size: 30.0,
+                    ),
+                    onPressed: () async {
+                      context.pushNamed(
+                        BusinessSettingsPageWidget.routeName,
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                            duration: Duration(milliseconds: 0),
+                          ),
+                        },
+                      );
+                    },
+                  ),
+                ),
+                if (widget.selectedpage == 5)
+                  SizedBox(
+                    width: 30.0,
+                    child: Divider(
+                      height: 2.0,
+                      thickness: 2.0,
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                    ),
+                  ).animateOnPageLoad(
+                      animationsMap['dividerOnPageLoadAnimation5']!),
               ],
             ),
           ]

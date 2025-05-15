@@ -1,4 +1,4 @@
-import '/business_panel/components/navigaton_bottombar/navigaton_bottombar_widget.dart';
+import '/business_panel/navigaton_bottombar/navigaton_bottombar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';

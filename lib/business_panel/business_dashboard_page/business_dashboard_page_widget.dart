@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/business_panel/components/navigaton_bottombar/navigaton_bottombar_widget.dart';
+import '/business_panel/navigaton_bottombar/navigaton_bottombar_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

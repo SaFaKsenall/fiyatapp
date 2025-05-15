@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "858351322797",
+    "project_id": "fiyatapp-xumfmh",
+    "storage_bucket": "fiyatapp-xumfmh.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858351322797:android:78f9a0f837fc812a822824",
+        "android_client_info": {
+          "package_name": "com.mycompany.fiyatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzb-mE9_Ur3gQJy3Dbdex6GwuHVzSs9LM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
