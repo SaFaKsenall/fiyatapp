@@ -727,6 +727,9 @@ class BusinessAPGroup {
       RezervasyonTamamlandiCall();
   static OtellerimCall otellerimCall = OtellerimCall();
   static RezervasyonlarCall rezervasyonlarCall = RezervasyonlarCall();
+  static BusinessTalepleriCall businessTalepleriCall = BusinessTalepleriCall();
+  static IdyeGoreBusinessTalepleriCall idyeGoreBusinessTalepleriCall =
+      IdyeGoreBusinessTalepleriCall();
 }
 
 class HotelsAddCall {
@@ -2021,6 +2024,327 @@ class RezervasyonlarCall {
         r'''$.data.bookings''',
         true,
       ) as List?;
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class BusinessTalepleriCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+  }) async {
+    final baseUrl = BusinessAPGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'business talepleri',
+      apiUrl: '${baseUrl}/api/businesses/leads',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? errormessage(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error.message''',
+      ));
+  int? errorcode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.error.code''',
+      ));
+  dynamic error(dynamic response) => getJsonField(
+        response,
+        r'''$.error''',
+      );
+  bool? success(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.success''',
+      ));
+  int? datapaginationtotalItems(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.totalItems''',
+      ));
+  int? datapaginationtotalPages(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.totalPages''',
+      ));
+  dynamic datapagination(dynamic response) => getJsonField(
+        response,
+        r'''$.data.pagination''',
+      );
+  List? dataleadsbusinessOfferValidUntil(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].businessOfferValidUntil''',
+        true,
+      ) as List?;
+  List? dataleadsbusinessPriceOffer(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].businessPriceOffer''',
+        true,
+      ) as List?;
+  List<String>? dataleadsupdatedAt(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].updatedAt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsmessageToOwner(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].messageToOwner''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsbusinessOwnerUid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].businessOwnerUid''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsmatchedHotelId(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].matchedHotelId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? dataleadssearcherInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].searcherInfo''',
+        true,
+      ) as List?;
+  List<String>? dataleadssearcherUserId(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].searcherUserId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadssearchCriteriacity(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].searchCriteria.city''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? dataleadssearchCriteria(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].searchCriteria''',
+        true,
+      ) as List?;
+  List<String>? dataleadsid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsstatus(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].status''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadscreatedAt(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].createdAt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? dataleadsbusinessResponseText(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].businessResponseText''',
+        true,
+      ) as List?;
+  List? dataleadsbusinessAvailabilityInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].businessAvailabilityInfo''',
+        true,
+      ) as List?;
+  List? dataleadsrespondedAt(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].respondedAt''',
+        true,
+      ) as List?;
+  int? datapaginationcurrentPage(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.currentPage''',
+      ));
+  int? datapaginationlimit(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.limit''',
+      ));
+  List? dataleads(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads''',
+        true,
+      ) as List?;
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class IdyeGoreBusinessTalepleriCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? leadId = '',
+  }) async {
+    final baseUrl = BusinessAPGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'idye gore business talepleri',
+      apiUrl: '${baseUrl}/api/businesses/leads/${leadId}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {
+        'leadId': leadId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? errormessage(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error.message''',
+      ));
+  int? errorcode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.error.code''',
+      ));
+  dynamic error(dynamic response) => getJsonField(
+        response,
+        r'''$.error''',
+      );
+  bool? success(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.success''',
+      ));
+  dynamic datalead(dynamic response) => getJsonField(
+        response,
+        r'''$.data.lead''',
+      );
+  String? dataleadrespondedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.respondedAt''',
+      ));
+  String? dataleadbusinessAvailabilityInfo(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessAvailabilityInfo''',
+      ));
+  String? dataleadbusinessResponseText(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessResponseText''',
+      ));
+  String? dataleadcreatedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.createdAt''',
+      ));
+  String? dataleadstatus(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.status''',
+      ));
+  String? dataleadmatchedHotelId(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.matchedHotelId''',
+      ));
+  String? dataleadsearchCriteriacity(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.searchCriteria.city''',
+      ));
+  String? dataleadsearcherUserId(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.searcherUserId''',
+      ));
+  String? dataleadbusinessOwnerUid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessOwnerUid''',
+      ));
+  String? dataleadmessageToOwner(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.messageToOwner''',
+      ));
+  String? dataleadupdatedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.updatedAt''',
+      ));
+  double? dataleadbusinessPriceOffer(dynamic response) =>
+      castToType<double>(getJsonField(
+        response,
+        r'''$.data.lead.businessPriceOffer''',
+      ));
+  String? dataleadbusinessOfferValidUntil(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessOfferValidUntil''',
+      ));
+  dynamic dataleadsearchCriteria(dynamic response) => getJsonField(
+        response,
+        r'''$.data.lead.searchCriteria''',
+      );
+  String? dataleadid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.id''',
+      ));
   dynamic data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
@@ -4588,7 +4912,7 @@ class OtelapileriGroup {
       'https://3000-idx-fiyat-app-backend-1745096031624.cluster-oayqgyglpfgseqclbygurw4xd4.cloudworkstations.dev';
   static Map<String, String> headers = {};
   static IdYeGoreOtelCall idYeGoreOtelCall = IdYeGoreOtelCall();
-  static OzalOtelAramCall ozalOtelAramCall = OzalOtelAramCall();
+  static OzalOtelAramaCall ozalOtelAramaCall = OzalOtelAramaCall();
 }
 
 class IdYeGoreOtelCall {
@@ -4660,7 +4984,7 @@ class IdYeGoreOtelCall {
       ));
 }
 
-class OzalOtelAramCall {
+class OzalOtelAramaCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? city = '',
@@ -4671,24 +4995,38 @@ class OzalOtelAramCall {
     String? page = '',
     String? limit = '',
     String? tags = '',
+    String? concept = '',
+    String? messageForOwners = '',
   }) async {
     final baseUrl = OtelapileriGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "filters": {
+    "city": "${escapeStringForJson(city)}",
+    "concept": "${escapeStringForJson(concept)}",
+    "amenities": [
+      "${escapeStringForJson(amenities)}"
+    ],
+    "hotelType": "${escapeStringForJson(hotelType)}",
+    "tags": [
+      "${escapeStringForJson(tags)}"
+    ]
+  },
+  "searcherContext": {
+    "messageForOwners": "${escapeStringForJson(messageForOwners)}"
+  }
+}''';
     return ApiManager.instance.makeApiCall(
-      callName: 'ozal otel aram',
-      apiUrl: '${baseUrl}/api/hotels/',
-      callType: ApiCallType.GET,
+      callName: 'ozal otel arama',
+      apiUrl: '${baseUrl}/api/hotels/search-and-notify',
+      callType: ApiCallType.POST,
       headers: {
         'Authorization': 'Bearer ${authToken}',
       },
-      params: {
-        'city': city,
-        'hotelType': hotelType,
-        'amenities': amenities,
-        'sortBy': sortBy,
-        'sortOrder': sortOrder,
-        'tags': tags,
-      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -4850,6 +5188,163 @@ class OzalOtelAramCall {
         response,
         r'''$.message''',
       ));
+  String? datahotelspostalCode(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].postalCode''',
+      ));
+  double? datahotelslatitude(dynamic response) =>
+      castToType<double>(getJsonField(
+        response,
+        r'''$.data.hotels[:].latitude''',
+      ));
+  double? datahotelslongitude(dynamic response) =>
+      castToType<double>(getJsonField(
+        response,
+        r'''$.data.hotels[:].longitude''',
+      ));
+  List<String>? datahotelsimages(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.hotels[:].images''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  dynamic datahotelscontactInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.data.hotels[:].contactInfo''',
+      );
+  String? datahotelscontactInfoemail(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].contactInfo.email''',
+      ));
+  String? datahotelscontactInfophone(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].contactInfo.phone''',
+      ));
+  String? datahotelscontactInfowebsite(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].contactInfo.website''',
+      ));
+  dynamic datahotelspolicies(dynamic response) => getJsonField(
+        response,
+        r'''$.data.hotels[:].policies''',
+      );
+  String? datahotelspoliciespetPolicy(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].policies.petPolicy''',
+      ));
+  String? datahotelspolicieschildPolicy(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].policies.childPolicy''',
+      ));
+  int? datanotificationSummaryleadsGenerated(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.notificationSummary.leadsGenerated''',
+      ));
+  List? datanotificationSummarynotifiedBusinessOwners(dynamic response) =>
+      getJsonField(
+        response,
+        r'''$.data.notificationSummary.notifiedBusinessOwners''',
+        true,
+      ) as List?;
+  String? datanotificationSummarymessage(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.notificationSummary.message''',
+      ));
+  dynamic datanotificationSummary(dynamic response) => getJsonField(
+        response,
+        r'''$.data.notificationSummary''',
+      );
+  List? datahotelsamenitiesicon(dynamic response) => getJsonField(
+        response,
+        r'''$.data.hotels[:].amenities[:].icon''',
+        true,
+      ) as List?;
+  List<String>? datahotelsamenitiesname(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.hotels[:].amenities[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  String? datahotelsbusinessOwneremail(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].businessOwner.email''',
+      ));
+  String? datahotelsbusinessOwnerbusinessName(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].businessOwner.businessName''',
+      ));
+  String? datahotelsbusinessOwneruid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].businessOwner.uid''',
+      ));
+  dynamic datahotelsbusinessOwner(dynamic response) => getJsonField(
+        response,
+        r'''$.data.hotels[:].businessOwner''',
+      );
+  String? datahotelsbusinessOwnerUid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].businessOwnerUid''',
+      ));
+  String? datahotelsupdatedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].updatedAt''',
+      ));
+  String? datahotelscreatedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].createdAt''',
+      ));
+  String? datahotelsstatus(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].status''',
+      ));
+  String? datahotelscountry(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].country''',
+      ));
+  String? datahotelsregion(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].region''',
+      ));
+  String? datahotelscity(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].city''',
+      ));
+  String? datahotelsdescription(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].description''',
+      ));
+  String? datahotelspoliciescancellation(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].policies.cancellation''',
+      ));
+  String? datahotelsstreetAddress(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.hotels[:].streetAddress''',
+      ));
 }
 
 /// End otelapileri Group Code
@@ -4863,6 +5358,9 @@ class UserApisiGroup {
   static OteleYorumVePuanVermeCall oteleYorumVePuanVermeCall =
       OteleYorumVePuanVermeCall();
   static IletisimCall iletisimCall = IletisimCall();
+  static OtelaramatalepleriCall otelaramatalepleriCall =
+      OtelaramatalepleriCall();
+  static IdyeGoreTaleplerCall idyeGoreTaleplerCall = IdyeGoreTaleplerCall();
 }
 
 class OteleYorumVePuanVermeCall {
@@ -5088,7 +5586,650 @@ class IletisimCall {
       ));
 }
 
+class OtelaramatalepleriCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+  }) async {
+    final baseUrl = UserApisiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'otelaramatalepleri',
+      apiUrl: '${baseUrl}/api/users/search-leads',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? datapaginationlimit(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.limit''',
+      ));
+  int? datapaginationtotalPages(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.totalPages''',
+      ));
+  dynamic datapagination(dynamic response) => getJsonField(
+        response,
+        r'''$.data.pagination''',
+      );
+  List? dataleadsbusinessOfferValidUntil(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].businessOfferValidUntil''',
+        true,
+      ) as List?;
+  List? dataleadsbusinessPriceOffer(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].businessPriceOffer''',
+        true,
+      ) as List?;
+  List<String>? dataleadsupdatedAt(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].updatedAt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsmessageToOwner(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].messageToOwner''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsbusinessOwnerUid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].businessOwnerUid''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? dataleadssearcherInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].searcherInfo''',
+        true,
+      ) as List?;
+  List<String>? dataleadssearchCriteriacity(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].searchCriteria.city''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  int? datapaginationtotalItems(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.totalItems''',
+      ));
+  int? currentPage(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.pagination.currentPage''',
+      ));
+  List? dataleadsrespondedAt(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].respondedAt''',
+        true,
+      ) as List?;
+  List? dataleadsbusinessAvailabilityInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].businessAvailabilityInfo''',
+        true,
+      ) as List?;
+  List? dataleadsbusinessResponseText(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].businessResponseText''',
+        true,
+      ) as List?;
+  List<String>? dataleadscreatedAt(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].createdAt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsstatus(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].status''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadsmatchedHotelId(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].matchedHotelId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? dataleadssearcherUserId(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.leads[:].searcherUserId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? dataleadssearchCriteria(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads[:].searchCriteria''',
+        true,
+      ) as List?;
+  List? dataleads(dynamic response) => getJsonField(
+        response,
+        r'''$.data.leads''',
+        true,
+      ) as List?;
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  bool? success(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.success''',
+      ));
+  dynamic error(dynamic response) => getJsonField(
+        response,
+        r'''$.error''',
+      );
+  int? errorcode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.error.code''',
+      ));
+  String? errormessage(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error.message''',
+      ));
+}
+
+class IdyeGoreTaleplerCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? leadId = '',
+  }) async {
+    final baseUrl = UserApisiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'idye gore talepler',
+      apiUrl: '${baseUrl}/api/users/search-leads/${leadId}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {
+        'leadId': leadId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? errormessage(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error.message''',
+      ));
+  int? errorcode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.error.code''',
+      ));
+  dynamic error(dynamic response) => getJsonField(
+        response,
+        r'''$.error''',
+      );
+  bool? success(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.success''',
+      ));
+  String? dataleadrespondedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.respondedAt''',
+      ));
+  String? dataleadbusinessAvailabilityInfo(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessAvailabilityInfo''',
+      ));
+  String? dataleadbusinessResponseText(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessResponseText''',
+      ));
+  String? dataleadcreatedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.createdAt''',
+      ));
+  String? dataleadstatus(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.status''',
+      ));
+  String? dataleadmatchedHotelId(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.matchedHotelId''',
+      ));
+  String? dataleadsearchCriteriacity(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.searchCriteria.city''',
+      ));
+  String? dataleadbusinessOfferValidUntil(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessOfferValidUntil''',
+      ));
+  double? dataleadbusinessPriceOffer(dynamic response) =>
+      castToType<double>(getJsonField(
+        response,
+        r'''$.data.lead.businessPriceOffer''',
+      ));
+  String? dataleadupdatedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.updatedAt''',
+      ));
+  String? dataleadmessageToOwner(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.messageToOwner''',
+      ));
+  String? dataleadbusinessOwnerUid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessOwnerUid''',
+      ));
+  String? dataleadsearcherUserId(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.searcherUserId''',
+      ));
+  dynamic dataleadsearchCriteria(dynamic response) => getJsonField(
+        response,
+        r'''$.data.lead.searchCriteria''',
+      );
+  String? dataleadid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.id''',
+      ));
+  dynamic datalead(dynamic response) => getJsonField(
+        response,
+        r'''$.data.lead''',
+      );
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
 /// End user apisi Group Code
+
+/// Start bildirimler Group Code
+
+class BildirimlerGroup {
+  static String getBaseUrl() =>
+      'https://3000-idx-fiyat-app-backend-1745096031624.cluster-oayqgyglpfgseqclbygurw4xd4.cloudworkstations.dev';
+  static Map<String, String> headers = {};
+  static TopluBildirimCall topluBildirimCall = TopluBildirimCall();
+  static IdYeGreBildirimCall idYeGreBildirimCall = IdYeGreBildirimCall();
+  static GeriBildirimCall geriBildirimCall = GeriBildirimCall();
+}
+
+class TopluBildirimCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? title = '',
+    String? body = '',
+    String? screen = '',
+    String? campaignId = '',
+    String? androidSound = '',
+    String? bigPicture = '',
+    String? iosSound = '',
+    String? androidChannelId = '',
+    String? buttons = '',
+    String? text = '',
+    String? id = '',
+    String? androidAccentColor = '',
+  }) async {
+    final baseUrl = BildirimlerGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "title": "${escapeStringForJson(title)}",
+  "body": "${escapeStringForJson(body)}",
+  "data": {
+    "screen": "${escapeStringForJson(screen)}",
+    "campaignId": "${escapeStringForJson(campaignId)}"
+  },
+  "customizations": {
+    "android_sound": "${escapeStringForJson(androidSound)}",
+    "ios_sound": "${escapeStringForJson(iosSound)}",
+    "android_channel_id": "${escapeStringForJson(androidChannelId)}",
+    "big_picture": "${escapeStringForJson(bigPicture)}",
+    "buttons": [
+      {
+        "id": "${escapeStringForJson(id)}",
+        "text": "${escapeStringForJson(text)}"
+      }
+      
+    ],
+    "android_accent_color": "${escapeStringForJson(androidAccentColor)}"
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'toplu bildirim',
+      apiUrl: '${baseUrl}/api/notifications/send-to-all',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List<String>? errorsmessage(dynamic response) => (getJsonField(
+        response,
+        r'''$.errors[:].message''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  bool? success(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.success''',
+      ));
+}
+
+class IdYeGreBildirimCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? title = '',
+    String? body = '',
+    String? screen = '',
+    String? campaignId = '',
+    String? androidSound = '',
+    String? bigPicture = '',
+    String? iosSound = '',
+    String? androidChannelId = '',
+    String? buttons = '',
+    String? text = '',
+    String? id = '',
+    String? androidAccentColor = '',
+    String? userType = '',
+    String? userId = '',
+  }) async {
+    final baseUrl = BildirimlerGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "title": "${escapeStringForJson(title)}",
+  "body": "${escapeStringForJson(body)}",
+  "data": {
+    "screen": "${escapeStringForJson(screen)}",
+    "campaignId": "${escapeStringForJson(campaignId)}"
+  },
+  "customizations": {
+    "android_sound": "${escapeStringForJson(androidSound)}",
+    "ios_sound": "${escapeStringForJson(iosSound)}",
+    "android_channel_id": "${escapeStringForJson(androidChannelId)}",
+    "big_picture": "${escapeStringForJson(bigPicture)}",
+    "buttons": [
+      {
+        "id": "${escapeStringForJson(id)}",
+        "text": "${escapeStringForJson(text)}"
+      }
+      
+    ],
+    "android_accent_color": "${escapeStringForJson(androidAccentColor)}"
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'id ye gre bildirim',
+      apiUrl: '${baseUrl}/api/notifications/${userType}/${userId}/send',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? errormessage(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error.message''',
+      ));
+  String? dataid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.id''',
+      ));
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class GeriBildirimCall {
+  Future<ApiCallResponse> call({
+    String? leadId = '',
+    String? responseText = '',
+    double? priceOffer,
+    String? availabilityInfo = '',
+    String? offerValidUntil = '',
+    String? authToken = '',
+  }) async {
+    final baseUrl = BildirimlerGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "responseText": "${escapeStringForJson(responseText)}",
+  "priceOffer": ${priceOffer},
+  "availabilityInfo": "${escapeStringForJson(availabilityInfo)}",
+  "offerValidUntil": "${escapeStringForJson(offerValidUntil)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'geri bildirim',
+      apiUrl: '${baseUrl}/api/businesses/leads/${leadId}/respond',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? errormessage(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error.message''',
+      ));
+  String? dataleadupdatedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.updatedAt''',
+      ));
+  String? dataleadrespondedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.respondedAt''',
+      ));
+  String? dataleadbusinessAvailabilityInfo(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessAvailabilityInfo''',
+      ));
+  String? dataleadbusinessResponseText(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessResponseText''',
+      ));
+  String? dataleadstatus(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.status''',
+      ));
+  String? dataleadmatchedHotelId(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.matchedHotelId''',
+      ));
+  dynamic dataleadsearchCriteria(dynamic response) => getJsonField(
+        response,
+        r'''$.data.lead.searchCriteria''',
+      );
+  dynamic datalead(dynamic response) => getJsonField(
+        response,
+        r'''$.data.lead''',
+      );
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? dataleadcreatedAt(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.createdAt''',
+      ));
+  String? dataleadbusinessOfferValidUntil(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessOfferValidUntil''',
+      ));
+  int? dataleadbusinessPriceOffer(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.lead.businessPriceOffer''',
+      ));
+  String? dataleadmessageToOwner(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.messageToOwner''',
+      ));
+  String? dataleadbusinessOwnerUid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.businessOwnerUid''',
+      ));
+  String? dataleadsearcherUserId(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.searcherUserId''',
+      ));
+  String? dataleadsearchCriteriaconcept(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.searchCriteria.concept''',
+      ));
+  String? dataleadid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.id''',
+      ));
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  bool? success(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.success''',
+      ));
+  List<String>? dataleadsearchCriteriatagNames(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.data.lead.searchCriteria.tagNames''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  String? dataleadsearchCriteriahotelType(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.lead.searchCriteria.hotelType''',
+      ));
+}
+
+/// End bildirimler Group Code
 
 class ApiPagingParams {
   int nextPageNumber = 0;
